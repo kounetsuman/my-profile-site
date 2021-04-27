@@ -1,0 +1,11 @@
+myApp:
+  component: "@sls-next/serverless-component@1.18.0"
+  inputs:
+    bucketName: ${env.AWS_S3_NAME}
+    domain: ${env.NEXT_PUBLIC_MYDOMAIN}
+    cloudfront:
+      distributionId: ${env.AWS_CLOUDFRONT_NAME}
+    certificate:
+        cloudFrontDefaultCertificate: false
+        acmCertificateArn: ${env.AWS_ACM}
+    name: ${env.AWS_LAMBDA_NAME}

@@ -1,0 +1,10 @@
+/* hidden scroll bar*/
+.tag-ranking-hidden-scroll {
+    height: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.tag-ranking-hidden-scroll::-webkit-scrollbar {
+    display: none;
+}

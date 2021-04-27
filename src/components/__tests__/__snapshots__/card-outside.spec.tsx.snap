@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardOutside can action 1`] = `
+<div
+  className="w-full flex-col p-3 text-gray-900"
+>
+  <div
+    className="p-4 bg-white rounded-lg shadow-lg flex-col hover:bg-gray-200 active:bg-gray-400"
+  >
+    aaa
+  </div>
+</div>
+`;
+
+exports[`CardOutside cannot action 1`] = `
+<div
+  className="w-full flex-col p-3 text-gray-900"
+>
+  <div
+    className="p-4 bg-white rounded-lg shadow-lg flex-col "
+  >
+    aaa
+  </div>
+</div>
+`;

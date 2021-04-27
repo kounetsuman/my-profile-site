@@ -1,0 +1,40 @@
+name: UpdatePost
+on:
+  repository_dispatch:
+    types: [update_post]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10 # job全体
+    env:
+      NEXT_PUBLIC_SAUNNER_ID: ${{secrets.NEXT_PUBLIC_SAUNNER_ID}}
+      NEXT_PUBLIC_HANDLE_NAME: ${{secrets.NEXT_PUBLIC_HANDLE_NAME}}
+      NEXT_PUBLIC_MY_FIRST_NAME: ${{secrets.NEXT_PUBLIC_MY_FIRST_NAME}}
+      NEXT_PUBLIC_MY_LAST_NAME: ${{secrets.NEXT_PUBLIC_MY_LAST_NAME}}
+      NEXT_PUBLIC_MYDOMAIN: ${{secrets.NEXT_PUBLIC_MYDOMAIN}}
+      NEXT_PUBLIC_MICROCMS_ACCESS_KEY: ${{secrets.MICROCMS_ACCESS_KEY}}
+      NEXT_PUBLIC_MICROCMS_WHITE_ACCESS_KEY: ${{secrets.MICROCMS_WHITE_ACCESS_KEY}}
+      NEXT_PUBLIC_MICROCMS_BASEURL: ${{secrets.MICROCMS_BASEURL}}
+      AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+      AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      AWS_ACM: ${{secrets.AWS_ACM}}
+      AWS_S3_NAME: ${{secrets.AWS_S3_NAME}}
+      AWS_LAMBDA_NAME: ${{secrets.AWS_LAMBDA_NAME}}
+      AWS_CLOUDFRONT_NAME: ${{secrets.AWS_CLOUDFRONT_NAME}}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - run: yarn install
+    - run: yarn run deploy:prod
+    - name: Slack Notification when build failed
+      if: failure()
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_CHANNEL: channel-name
+        SLACK_COLOR: '#ff0000'
+        SLACK_TITLE: ':fire::fire::fire: Build error! :fire::fire::fire:'
+        SLACK_MESSAGE: "Build error! Please check github!"
+        SLACK_USERNAME: GitHub Actions
+        SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}

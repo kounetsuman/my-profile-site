@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeprecationAlert one month ago 1`] = `
+<div
+  className="MuiPaper-root MuiAlert-root MuiAlert-standardWarning MuiPaper-elevation0"
+  role="alert"
+>
+  <div
+    className="MuiAlert-icon"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+      />
+    </svg>
+  </div>
+  <div
+    className="MuiAlert-message"
+  >
+    この記事は最終更新日から1か月以上が経過しています。
+  </div>
+</div>
+`;
+
+exports[`DeprecationAlert one year ago 1`] = `
+<div
+  className="MuiPaper-root MuiAlert-root MuiAlert-standardWarning MuiPaper-elevation0"
+  role="alert"
+>
+  <div
+    className="MuiAlert-icon"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+      />
+    </svg>
+  </div>
+  <div
+    className="MuiAlert-message"
+  >
+    この記事は最終更新日から1年以上が経過しています。
+  </div>
+</div>
+`;
+
+exports[`DeprecationAlert today 1`] = `null`;
